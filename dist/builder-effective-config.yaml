@@ -1,0 +1,31 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.electron.yourapp
+extraFiles:
+  - from: app
+    to: app
+    filter:
+      - preload.js
+  - from: ./
+    to: ./
+    filter:
+      - chromedriver.exe
+files:
+  - filter:
+      - assets/*
+      - app/**/*
+      - package.json
+      - package-lock.json
+      - node_modules
+      - chromedriver.exe
+mac:
+  target: dmg
+  icon: assets/zeus.png
+win:
+  target: nsis
+  icon: assets/zeus.png
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+electronVersion: 13.2.1
